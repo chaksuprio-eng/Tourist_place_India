@@ -13,67 +13,119 @@
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: radial-gradient(circle at top left, rgba(255,255,255,0.3), transparent 25%),
+                        linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 20px;
         }
         
         .container {
+            position: relative;
             text-align: center;
             background: rgba(255, 255, 255, 0.95);
             padding: 60px 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            max-width: 600px;
+            border-radius: 18px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+            max-width: 620px;
+            overflow: hidden;
+        }
+        
+        .container::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle, rgba(255,255,255,0.55) 0%, transparent 55%);
+            pointer-events: none;
         }
         
         .welcome-header {
-            color: #667eea;
+            color: #4f5fc6;
             font-size: 48px;
-            font-weight: bold;
+            font-weight: 800;
+            letter-spacing: 1px;
             margin-bottom: 10px;
         }
         
         .name {
-            color: #764ba2;
-            font-size: 56px;
-            font-weight: bold;
+            color: #5f3fa2;
+            font-size: 60px;
+            font-weight: 900;
             margin: 20px 0;
+            text-transform: uppercase;
         }
         
         .subtitle {
-            color: #555;
-            font-size: 18px;
+            color: #3c3c4d;
+            font-size: 19px;
             margin: 20px 0;
-            line-height: 1.6;
+            line-height: 1.7;
         }
         
         .message {
-            color: #888;
+            color: #656575;
             font-size: 16px;
             margin-top: 30px;
             padding-top: 30px;
-            border-top: 2px solid #eee;
+            border-top: 2px solid #f0f0ff;
         }
         
         .emoji {
-            font-size: 50px;
+            font-size: 52px;
             margin: 20px 0;
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        .action-btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 14px 30px;
+            background: linear-gradient(135deg, #6d72ff, #8b5cf6);
+            color: #fff;
+            border: none;
+            border-radius: 999px;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        
+        .action-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 28px rgba(109, 114, 255, 0.25);
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @media (max-width: 640px) {
+            .container {
+                padding: 40px 24px;
+            }
+            .welcome-header {
+                font-size: 38px;
+            }
+            .name {
+                font-size: 46px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="emoji">👋</div>
-        <div class="welcome-header">Welcome Home!</div>
+        <div class="welcome-header">Welcome Home,</div>
         <div class="name">Suprio</div>
         <div class="subtitle">
-            Glad to have you here. This is your personal welcome page.
+            This is your personal homepage. It has a friendly look, subtle animation, and a clean card layout.
         </div>
-        <div class="message">
-            Hope you have a great day ahead! 🌟
+        <a class="action-btn" href="#message">View your greeting</a>
+        <div class="message" id="message">
+            Thanks for visiting! Keep building and enjoy the creative journey. ✨
         </div>
     </div>
 </body>
