@@ -55,7 +55,14 @@
             font-size: 60px;
             font-weight: 900;
             margin: 20px 0;
-            text-transform: uppercase;
+        }
+        
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, #16c172, #0e7a4d);
+            margin: 20px auto;
+            border-radius: 2px;
         }
         
         .subtitle {
@@ -98,6 +105,33 @@
             box-shadow: 0 14px 28px rgba(16, 161, 107, 0.28);
         }
         
+        .cta-section {
+            margin-top: 30px;
+            padding-top: 20px;
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #16c172, #0e7a4d);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(16, 161, 107, 0.25);
+        }
+        
         @keyframes float {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
@@ -121,12 +155,17 @@
         <div class="emoji">👋</div>
         <div class="welcome-header">Welcome !</div>
         <div class="name">Hello I'm Suprio</div>
+        <div class="divider"></div>
         <div class="subtitle">
             I'm excited to share my projects and journey with you. Explore my work and see what I'm building as I grow as a developer and innovator.
         </div>
-        <a class="action-btn" href="#message">View your greeting</a>
         <div class="message" id="message">
             Thanks for visiting! Keep building and enjoy the creative journey. ✨
+        </div>
+        <div class="cta-section">
+            <a class="cta-btn" href="#projects">View Projects</a>
+            <a class="cta-btn" href="#contact">Get in Touch</a>
+            <a class="cta-btn" href="#about">About Me</a>
         </div>
     </div>
 </body>
